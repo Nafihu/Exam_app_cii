@@ -169,6 +169,60 @@
     border-left: 5px solid #dc3545;
     font-size: 17px;
   }
+  
+  .incorrect-questions {
+    margin-top: 40px;
+    text-align: left;
+  }
+  
+  .incorrect-questions h3 {
+    color: #dc3545;
+    margin-bottom: 25px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .question-review {
+    background: #fff5f5;
+    border: 2px solid #dc3545;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+  }
+  
+  .question-review-header {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  
+  .answer-option {
+    padding: 12px 15px;
+    margin: 8px 0;
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .answer-option.your-answer {
+    background: #fee;
+    border: 2px solid #dc3545;
+    color: #721c24;
+  }
+  
+  .answer-option.correct-answer {
+    background: #d4edda;
+    border: 2px solid #28a745;
+    color: #155724;
+  }
+  
+  .answer-label {
+    font-weight: bold;
+    font-size: 14px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
 </style>
 </head>
 <body>
@@ -197,6 +251,7 @@
         <div class="pass-fail" id="pass-fail"></div>
       </div>
       <div class="weak-topics" id="weak-topics"></div>
+      <div class="incorrect-questions" id="incorrect-questions"></div>
       <button class="btn" id="restart-btn" type="button">TAKE ANOTHER EXAM</button>
     </div>
   </div>
@@ -223,7 +278,8 @@ const els = {
   progress: document.getElementById('progress'),
   score: document.getElementById('score'),
   passFail: document.getElementById('pass-fail'),
-  weakTopics: document.getElementById('weak-topics')
+  weakTopics: document.getElementById('weak-topics'),
+  incorrectQuestions: document.getElementById('incorrect-questions')
 };
 
 els.startBtn.addEventListener('click', startExam);
@@ -311,11 +367,22 @@ function showResults() {
   
   let correctCount = 0;
   const topicScores = {};
+  const incorrectQuestions = [];
   
   examQuestions.forEach((q, i) => {
-    if (userAnswers[i] === q.correct) correctCount++;
+    const isCorrect = userAnswers[i] === q.correct;
+    if (isCorrect) {
+      correctCount++;
+    } else {
+      incorrectQuestions.push({
+        question: q,
+        userAnswer: userAnswers[i],
+        questionNumber: i + 1
+      });
+    }
+    
     if (!topicScores[q.topic]) topicScores[q.topic] = {correct: 0, total: 0};
-    if (userAnswers[i] === q.correct) topicScores[q.topic].correct++;
+    if (isCorrect) topicScores[q.topic].correct++;
     topicScores[q.topic].total++;
   });
   
@@ -326,6 +393,7 @@ function showResults() {
   els.passFail.textContent = isPassed ? 'PASS ✅' : 'FAIL ❌';
   els.passFail.className = `pass-fail ${isPassed ? 'pass' : 'fail'}`;
   
+  // Show weak topics
   els.weakTopics.innerHTML = '<h3>Topics to Improve:</h3>';
   let hasWeak = false;
   
@@ -343,6 +411,41 @@ function showResults() {
   
   if (!hasWeak) {
     els.weakTopics.innerHTML = '<p style="text-align:center;color:#28a745;font-size:18px;margin-top:20px;">Great job! No weak areas identified.</p>';
+  }
+  
+  // Show incorrect questions
+  if (incorrectQuestions.length > 0) {
+    els.incorrectQuestions.innerHTML = '<h3>Questions You Got Wrong:</h3>';
+    
+    incorrectQuestions.forEach(item => {
+      const reviewDiv = document.createElement('div');
+      reviewDiv.className = 'question-review';
+      
+      const header = document.createElement('div');
+      header.className = 'question-review-header';
+      header.textContent = `Question ${item.questionNumber}: ${item.question.question}`;
+      reviewDiv.appendChild(header);
+      
+      const yourAnswerDiv = document.createElement('div');
+      yourAnswerDiv.className = 'answer-option your-answer';
+      yourAnswerDiv.innerHTML = `
+        <div class="answer-label">❌ Your Answer:</div>
+        <div>${item.question.options[item.userAnswer]}</div>
+      `;
+      reviewDiv.appendChild(yourAnswerDiv);
+      
+      const correctAnswerDiv = document.createElement('div');
+      correctAnswerDiv.className = 'answer-option correct-answer';
+      correctAnswerDiv.innerHTML = `
+        <div class="answer-label">✓ Correct Answer:</div>
+        <div>${item.question.options[item.question.correct]}</div>
+      `;
+      reviewDiv.appendChild(correctAnswerDiv);
+      
+      els.incorrectQuestions.appendChild(reviewDiv);
+    });
+  } else {
+    els.incorrectQuestions.innerHTML = '<p style="text-align:center;color:#28a745;font-size:20px;margin-top:30px;">Perfect score! You answered all questions correctly! 🎉</p>';
   }
 }
 
