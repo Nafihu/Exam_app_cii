@@ -7,7 +7,7 @@ const QUESTION_POOL = [
       "To provide short-term liquidity for high-street banks.",
       "To eliminate the need for personal savings."
     ],
-    "correct": 2,
+    "correct": 1,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -29,7 +29,7 @@ const QUESTION_POOL = [
       "30 days.",
       "90 days."
     ],
-    "correct": 0,
+    "correct": 2,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -62,7 +62,7 @@ const QUESTION_POOL = [
       "The amount paid at the end of a specified term if the life assured is still living.",
       "The penalty for canceling a policy early."
     ],
-    "correct": 1,
+    "correct": 2,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -95,7 +95,7 @@ const QUESTION_POOL = [
       "The final fund depends on contribution levels and investment performance.",
       "It is also known as a Final Salary scheme."
     ],
-    "correct": 1,
+    "correct": 2,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -128,7 +128,7 @@ const QUESTION_POOL = [
       "Increasing to reflect longer life expectancy.",
       "Being abolished in favor of private savings."
     ],
-    "correct": 1,
+    "correct": 2,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -139,7 +139,7 @@ const QUESTION_POOL = [
       "Annual Report and Accounts.",
       "Articles of Association."
     ],
-    "correct": 1,
+    "correct": 0,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -205,7 +205,7 @@ const QUESTION_POOL = [
       "They are legally identical in all UK contexts.",
       "Insurance is always more expensive."
     ],
-    "correct": 1,
+    "correct": 0,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -268,8 +268,8 @@ const QUESTION_POOL = [
     "options": [
       "The number of new products launched this year.",
       "The percentage of claims rejected and the reasons why.",
-      "The CEO’s annual bonus.",
-      "The firm’s physical office square footage."
+      "The CEO's annual bonus.",
+      "The firm's physical office square footage."
     ],
     "correct": 1,
     "topic": "Role and Value of Financial Services"
@@ -282,18 +282,18 @@ const QUESTION_POOL = [
       "Income protection.",
       "A standard bank savings account."
     ],
-    "correct": 1,
+    "correct": 0,
     "topic": "Role and Value of Financial Services"
   },
   {
-    "question": "A person starting their first job is automatically enrolled into a pension. They earn $\\pounds$25,000. Who must contribute to this scheme?",
+    "question": "A person starting their first job is automatically enrolled into a pension. They earn £25,000. Who must contribute to this scheme?",
     "options": [
       "Only the employee.",
       "Only the employer.",
       "Both the employee and the employer (and usually the government via tax relief).",
       "Only the government."
     ],
-    "correct": 1,
+    "correct": 2,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -359,7 +359,7 @@ const QUESTION_POOL = [
       "Higher State Pension payouts.",
       "Reduced income tax rates."
     ],
-    "correct": 1,
+    "correct": 0,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -370,16 +370,16 @@ const QUESTION_POOL = [
       "Cold calling.",
       "Arbitrage."
     ],
-    "correct": 1,
+    "correct": 0,
     "topic": "Role and Value of Financial Services"
   },
   {
-    "question": "A client has a \"Level Term\" policy for $\\pounds$200,000 over 20 years. If they die in year 19, how much is paid out?",
+    "question": "A client has a \"Level Term\" policy for £200,000 over 20 years. If they die in year 19, how much is paid out?",
     "options": [
-      "$\\pounds$10,000 (the remaining value).",
-      "$\\pounds$200,000.",
+      "£10,000 (the remaining value).",
+      "£200,000.",
       "Nothing, as it is too close to the end.",
-      "$\\pounds$200,000 plus 19 years of interest."
+      "£200,000 plus 19 years of interest."
     ],
     "correct": 1,
     "topic": "Role and Value of Financial Services"
@@ -403,7 +403,7 @@ const QUESTION_POOL = [
       "The Bank of England.",
       "The Department for Work and Pensions."
     ],
-    "correct": 1,
+    "correct": 0,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -469,7 +469,7 @@ const QUESTION_POOL = [
       "The FCA regulates only banks, while the PRA regulates only insurance.",
       "The PRA reports to the FCA."
     ],
-    "correct": 0,
+    "correct": 1,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -497,7 +497,7 @@ const QUESTION_POOL = [
   {
     "question": "In a \"Conflict of Interest\" situation, what is the \"first\" step an advisor should take?",
     "options": [
-      "Ignore it if it involves less than $\\pounds$100.",
+      "Ignore it if it involves less than £100.",
       "Disclose the conflict to the client.",
       "Resign immediately.",
       "Ask a colleague to sign the paperwork instead."
@@ -513,7 +513,7 @@ const QUESTION_POOL = [
       "\"It provides a basic foundation, but most people require additional private savings to maintain their standard of living.\"",
       "\"I am not allowed to discuss the government.\""
     ],
-    "correct": 1,
+    "correct": 2,
     "topic": "Role and Value of Financial Services"
   },
   {
@@ -524,7 +524,7 @@ const QUESTION_POOL = [
       "A decrease in the total population of the UK.",
       "Concerns over the long-term affordability of State welfare."
     ],
-    "correct": 0,
+    "correct": 2,
     "topic": "Role and Value of Financial Services"
   },
   {
